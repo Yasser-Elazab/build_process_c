@@ -1,0 +1,1 @@
+unsigned long long EXTERNAL_u64Pow2(unsigned long num);

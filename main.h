@@ -1,0 +1,1 @@
+#define MAIN_u8TEST_MUM     (unsigned char)8
