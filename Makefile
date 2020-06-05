@@ -4,7 +4,7 @@
 #target: dependency
 	# actions
 
-# dependency: comes from the dependency tree and it means that depends on the existance and consistancy of these files 
+# dependency: comes from the dependency tree (Direct Acyclic Graph) and it means that depends on the existance and consistancy of these files 
 
 # in this simple program, we have four files external.c, external.h, main.c, main.h
 
