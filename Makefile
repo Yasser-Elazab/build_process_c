@@ -26,10 +26,12 @@
 # the first target found in makefile gets excuted when "make" is invoked without 
 all: main 	# if we generate multiple executables(multiple treas), we make them the dependencies for the target "all" 
 
+main_obj = external.o main.o
+
 # a target can be specified by typing "make + target"
 # make main
-main: external.o main.o
-	gcc -o main main.o external.o -l m
+main: $(main_obj)
+	gcc -o main $(main_obj) -l m
 # or make external.o
 external.o: external.s
 	gcc -c -o external.o external.s
