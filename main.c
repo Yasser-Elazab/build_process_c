@@ -35,6 +35,9 @@ int main(void)
 {
     /*we shall not see this comment after the preprocessor operations are done*/
     printf("hello world!, this is test code 3\n");
+#ifdef DEBUG
+    printf("we are in debug mode folks!!\n");
+#endif
     printf("this is the test number: %u,\n", MAIN_u8TEST_MUM);
     printf("this is the const test number suqared: %lu\n", EXTERNAL_u64Pow2(MAIN_u8TestConstVar));
     printf("and this is the const test number cubed: %lu\n", (unsigned long)pow(MAIN_u8TestConstVar, 3));

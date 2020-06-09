@@ -50,3 +50,30 @@ main.s: main.i
 
 main.i: main.c main.h external.h
 	gcc -E -o main.i main.c
+
+all_debug: main_debug
+
+main_debug_obj = external_debug.o main_debug.o
+
+main_debug: $(main_debug_obj)
+	gcc -o main_debug $(main_debug_obj) -l m
+# or make external.o
+external_debug.o: external_debug.s
+	gcc -c -o external_debug.o external_debug.s
+# ...etc.
+external_debug.s: external_debug.i
+	gcc -S -o external_debug.s external_debug.i
+
+external_debug.i: external.c external.h
+	gcc -E -o external_debug.i external.c
+
+main_debug.o: main_debug.s
+	gcc -c -o main_debug.o main_debug.s
+
+main_debug.s: main_debug.i
+	gcc -S -o main_debug.s main_debug.i
+
+# here we are defining DEBUG, which will be treated as #define debug in the SRC files.
+# this way we have the option of building the project for debug mode or release mode
+main_debug.i: main.c main.h external.h
+	gcc -E -D DEBUG -o main_debug.i main.c
